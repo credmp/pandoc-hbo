@@ -18,6 +18,7 @@ pandoc preamble.md \
     --template "eisvogel.tex" \
     --listings \
     --toc -V toc-own-page=true \
+    --filter=pandoc-latex-environment \
     --filter=pandoc-citeproc   \
     --biblio=meta/my-biblio.bib \
     --csl=meta/apa.csl
