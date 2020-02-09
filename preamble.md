@@ -12,4 +12,10 @@ titlepage-rule-color: "360049"
 titlepage-rule-height: 0
 titlepage-background: "meta/background.pdf"
 toc-own-page: true
+pandoc-latex-environment:
+  noteblock: [note]
+  tipblock: [tip]
+  warningblock: [warning]
+  cautionblock: [caution]
+  importantblock: [important]
 ...
