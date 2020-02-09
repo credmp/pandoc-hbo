@@ -14,7 +14,7 @@ Op een Debian gebasseerd Linux systeem zijn de volgende paketten nodig.
 
 ```
 apt update
-apt install -y texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-pstricks texlive-lang-european
+apt install -y texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-pstricks texlive-lang-european texlive-fonts-recommended texlive-fonts-extra
 apt install -y pandoc pandoc-citeproc
 ```
 
