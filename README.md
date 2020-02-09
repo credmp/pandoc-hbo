@@ -8,7 +8,15 @@ Dit is een documentatie systeem voor het Nederlands hoger beroepsonderwijs. Het 
 - APA citaten
 - APA bibliografie
 
-## Benodigde paketten
+## Docker
+
+Er is een docker image bijgesloten wat de benodigde pakketen geinstalleerd heeft staan. Door `run.sh` de eerste keer te draaien zal het latex template, `eisvogel`, worden opgehaald en het lokale docker image worden gebouwd. 
+
+Dit zorgt er voor dat je niet alle latex files zelf hoeft te installeren en eventueel compatibiliteitsproblemen zelf moet oplossen.
+
+## Alternatief Benodigde paketten
+
+Voor als je het toch liever zelf doet.
 
 Op een Debian gebasseerd Linux systeem zijn de volgende paketten nodig.
 

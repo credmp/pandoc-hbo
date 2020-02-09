@@ -5,10 +5,12 @@ then
     echo "Downloading template"
     # Retrieve the eisvogel template file
     wget https://raw.githubusercontent.com/credmp/pandoc-latex-template/master/eisvogel.tex
+
+    docker build -t credmp/pandoc .
 fi
 
 # build the document
-docker run -v $(pwd):/doc/ -t -i credmp/pandoc \
+docker run -v $(pwd):/doc/ -t -i --rm credmp/pandoc \
 pandoc preamble.md \
        001-intro.md \
        999-reference.md \

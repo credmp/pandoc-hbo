@@ -92,3 +92,8 @@ and another
 ::: caution
 Danger will robinson, danger!
 :::
+
+
+::: tip
+Using docker saves you a lot of hassle!
+:::
