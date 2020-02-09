@@ -8,6 +8,7 @@ then
 fi
 
 # build the document
+docker run -v $(pwd):/doc/ -t -i credmp/pandoc \
 pandoc preamble.md \
        001-intro.md \
        999-reference.md \

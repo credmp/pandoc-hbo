@@ -80,3 +80,15 @@ Of verwijs naar onderstaande tabel \ref{table:second}.
 | zebra stripes | are neat      |    $1 |
 
 Table: another table syntax \label{table:second}
+
+## Awesomebox
+
+::: note
+This is a note
+:::
+
+and another
+
+::: caution
+Danger will robinson, danger!
+:::
