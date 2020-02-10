@@ -1,0 +1,483 @@
+#+STARTUP: indent
+#+OPTIONS: tex:t
+
+* Complete org-mode reference
+
+Using org-mode for editing plain text files is a great experience. The
+structured editing of the document is very powerful.
+
+\begin{noteblock}
+There does not seem to be a reference file out there with everything org-mode has to offer, so this is an attempt to make one.
+\end{noteblock}
+
+Many of the below examples are taken from [[https://github.com/fniessen/refcard-org-mode/blob/master/README.org][fniessen's refcard]].
+
+** Typography
+
+*** Bold and italic
+
+#+begin_src org
+/Emphasize/ (italics), *strongly* (bold), and */very strongly/* (bold italics).
+#+end_src
+
+/Emphasize/ (italics), *strongly* (bold), and */very strongly/* (bold italics).
+
+*** Monospace, superscript and subscript
+
+#+begin_src org
+- monospaced typewriter font for ~inline code~
+- monospaced typewriter font for =verbatim text=
+- +deleted text+ (vs. _inserted text_)
+- text with super^{script}, such as 2^{10}
+- text with sub_{script}, such as H_{2}O
+#+end_src
+
+- monospaced typewriter font for ~inline code~
+- monospaced typewriter font for =verbatim text=
+- +deleted text+ (vs. _inserted text_)
+- text with super^{script}, such as 2^{10}
+- text with sub_{script}, such as H_{2}O
+
+** Lists
+
+*** Unordered lists
+
+#+begin_src org
+- one item
+- two item
+  - sub item
+    - sub sub item
+#+end_src
+
+- one item
+- two item
+  - sub item
+    - sub sub item
+
+*** Ordered lists
+
+#+begin_src org
+1. numbered
+2. also
+3. and another
+   1. sub item
+   2. sub item
+#+end_src
+
+1. numbered
+2. also
+3. and another
+   1. sub item
+   2. sub item
+   
+*** Checklists
+
+#+begin_src org
+- [X] Checked.
+- [-] Half-checked.
+- [ ] Not checked.
+- Normal list item.
+#+end_src
+
+- [X] Checked.
+- [-] Half-checked.
+- [ ] Not checked.
+- Normal list item.
+
+*** Definition lists
+
+#+begin_src org
+- First term to define ::
+     Definition of the first term. We add a few words to show the line wrapping,
+     to see what happens when you have long lines.
+
+- Second term ::
+     Explication of the second term with *inline markup*.
+
+     In many paragraphs.
+#+end_src
+
+- First term to define ::
+     Definition of the first term. We add a few words to show the line wrapping,
+     to see what happens when you have long lines.
+
+- Second term ::
+     Explication of the second term with *inline markup*.
+
+     In many paragraphs.
+
+** Tables
+
+*** Simple table with headers
+
+#+begin_src org
+| Header 1 | Header 2 |
+|----------+----------|
+| Value    | not key  |
+#+end_src
+
+| Header 1 | Header 2 |
+|----------+----------|
+| Value    | not key  |
+
+*** Naming your table
+
+#+begin_src org
+#+CAPTION: Description of the table
+| Header 1 | Header 2 |
+|----------+----------|
+| Value    | not key  |
+#+end_src
+
+#+CAPTION: Description of the table
+| Header 1 | Header 2 |
+|----------+----------|
+| Value    | not key  |
+
+*** Column formatting
+
+Columns are automatically aligned:
+
+- Number-rich columns to the right, and
+- String-rich columns to the left.
+
+**** Table with aligned cells
+
+If you want to override the automatic alignment, use ~<r>~, ~<c>~ or ~<l>~.
+
+#+begin_src org
+#+CAPTION: Table with aligned columns
+|          <r> | <c>          | <l>          |
+|            1 | 2            | 3            |
+|        Right | Center       | Left         |
+| xxxxxxxxxxxx | xxxxxxxxxxxx | xxxxxxxxxxxx |
+#+end_src
+
+#+CAPTION: Table with aligned columns
+|          <r> | <c>          | <l>          |
+|            1 | 2            | 3            |
+|        Right | Center       | Left         |
+| xxxxxxxxxxxx | xxxxxxxxxxxx | xxxxxxxxxxxx |
+
+** Links
+
+See http://www.pirilampo.org (automatic!) and the
+[[http://orgmode.org/][Org mode Web site]].
+
+** Citations
+
+How about some @apa ?
+
+** Blocks
+*** Quote
+
+Sometimes you just need to quote someone.
+
+#+begin_quote
+this is a quote from someone very wise
+#+end_quote
+
+*** Code
+
+#+begin_src c  -r
+  #include <stdio.h>
+
+  int main() { (ref:sc)
+    // printf() displays the string inside quotation
+    printf("Hello, World!");
+    return 0;
+  }
+#+end_src
+
+in line [[(sc)]] there is some code.
+
+*** Example
+
+#+begin_example 
+  #include <stdio.h>
+
+  int main() {
+    // printf() displays the string inside quotation
+    printf("Hello, World!");
+    return 0;
+  }
+#+end_example
+
+*** ditaa
+
+#+begin_warning
+ditaa integration does not work yet.
+#+end_warning
+
+If you want to run ~ditaa~ in Emacs you will need to add it to ~org-babel~
+and set the path to the ~ditaa.jar~ you will have to install.
+
+#+begin_src
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t)))
+
+(setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
+#+end_src
+
+You can then use your best ascii art skills to draw diagrams.
+
+#+BEGIN_SRC
+,#+BEGIN_SRC ditaa :file images/architecture.png :exports results
+                                                      +---------+
+                                 /----------------\   |Lucene{s}|
+                                 |Search          +---+---------+
+                                 +----------------+   |  H2 {s} |
+         SWANK                   |Source Resolver |   +---------+
+          |                      +----------------+
+ +-----+  :  +--------------+    |Doc Server      |   +--------+
+ |Emacs|<--->|   Project    +----+----------------+   | JVM{io}|
+ +-----+  |  +---+----------+ |  |Debug Manager   +---+--------+
+          :      |        ^   :  +----------------+
+          |  +---+----+   |   |  |Analyzer        +---+-----------+
+          |  |File{io}|   |   |  \----------------/   |scalac     |
+          |  |Watchers|   |   |                       +-----------+
+          |  +--------+   |   |  /----------\         |Refactoring|
+          |    ^          |   +--+Formatting|         +-----------+
+          |    |          |      \----------/
+          +----|-=--------|-=------------------------------------
+      +-----+  |   +------++
+      |Files+--+   |.ensime|
+      +-----+      +-------+
+,#+END_SRC
+#+END_SRC
+
+#+BEGIN_SRC ditaa :file images/architecture.png :exports results
+                                                      +---------+
+                                 /----------------\   |Lucene{s}|
+                                 |Search          +---+---------+
+                                 +----------------+   |  H2 {s} |
+         SWANK                   |Source Resolver |   +---------+
+          |                      +----------------+
+ +-----+  :  +--------------+    |Doc Server      |   +--------+
+ |Emacs|<--->|   Project    +----+----------------+   | JVM{io}|
+ +-----+  |  +---+----------+ |  |Debug Manager   +---+--------+
+          :      |        ^   :  +----------------+
+          |  +---+----+   |   |  |Analyzer        +---+-----------+
+          |  |File{io}|   |   |  \----------------/   |scalac     |
+          |  |Watchers|   |   |                       +-----------+
+          |  +--------+   |   |  /----------\         |Refactoring|
+          |    ^          |   +--+Formatting|         +-----------+
+          |    |          |      \----------/
+          +----|-=--------|-=------------------------------------
+      +-----+  |   +------++
+      |Files+--+   |.ensime|
+      +-----+      +-------+
+#+END_SRC
+
+Is converted to the following image.
+
+#+RESULTS:
+[[file:images/architecture.png]]
+
+** Links
+
+*** To external sources
+
+#+begin_src org
+See http://www.orgmode.org (automatic!) and the
+[[http://orgmode.org/][Org mode Web site]].
+#+end_src
+
+See http://www.orgmode.org (automatic!) and the
+[[http://orgmode.org/][Org mode Web site]].
+
+*** To documents
+#+begin_src org
+[[../introduction.org][Inception!]]
+#+end_src
+
+[[../introduction.org][Inception!]]
+
+*** Links to headings
+
+In the chapter, References, below the heading is annotated with custom
+properties.
+
+#+begin_src org
+,* References
+  :PROPERTIES:
+  :CUSTOM_ID: References
+  :END:
+#+end_src
+
+Then you can reference the heading using a link.
+
+#+begin_src org
+See chapter [[#References][References]].
+#+end_src
+
+See chapter [[#References][References]].
+
+*** Images
+
+#+begin_src org
+[[./images/test.jpg]] 
+#+end_src
+
+[[./images/test.jpg]] 
+
+\begin{cautionblock}
+The current version of pandoc seems to have an issue with identifying the images when the extension is uppercase or pdf. It is tracked in issue 5454 on github (https://github.com/jgm/pandoc/issues/5454).
+
+If you have issues loading images, please check that one.
+\end{cautionblock}
+
+*** Figures and tables
+
+#+begin_src org
+#+name: fig:name
+#+caption: caption
+[[file:images/test.jpg]]
+
+See figure [@fig:name].
+#+end_src
+
+#+name: fig:name
+#+caption: caption
+[[file:images/test.jpg]]
+
+See figure [@fig:name].
+
+#+begin_caution
+Due to the use of citeproc this does not work. Citeproc claims this reference for itself.
+
+The solution seems to be to use ~org-ref~ instead of citeproc.
+
+Source: https://emacs.stackexchange.com/questions/32648/in-org-mode-how-do-i-reference-a-figure
+#+end_caution
+
+** Admonitions
+
+Admonitions (contextual backgrounds) are statements taken out of the content's
+flow and labeled with a title.
+
+Common admonitions are:
+
+1. ~note~
+2. ~warning~
+3. ~tip~
+4. ~caution~
+5. ~important~
+
+#+begin_src org
+#+begin_note
+This is a useful note.
+#+end_note
+
+#+begin_warning
+Be careful!  Check that you have...
+#+end_warning
+
+#+begin_tip
+Try doing it this way...
+#+end_tip
+
+#+begin_caution
+Caution
+#+end_caution
+
+#+begin_important
+Important
+#+end_important
+#+end_src
+
+#+begin_note
+This is a useful note.
+#+end_note
+
+#+begin_warning
+Be careful!  Check that you have...
+#+end_warning
+
+#+begin_tip
+Try doing it this way...
+#+end_tip
+
+#+begin_caution
+Caution
+#+end_caution
+
+#+begin_important
+Important
+#+end_important
+
+
+*** Additional admontions
+
+This can be achieved by using [[https://www.ctan.org/pkg/awesomebox][Awesomebox]]
+
+#+BEGIN_SRC latex
+\begin{noteblock}
+Another way to create a box
+\end{noteblock}
+#+END_SRC
+
+\begin{noteblock}
+Another way to create a box
+\end{noteblock}
+
+** Formula
+
+#+begin_src org
+The formula \(a^2 + b^2 = c^2\) has been discovered by Pythagoras.
+
+Let \(a=\sin(x) + \cos(x)\). Then \(a^2 = 2\sin(x)\cos(x)\) because \(\sin^2x +
+\cos^2x = 1\).
+#+end_src
+
+The formula \(a^2 + b^2 = c^2\) has been discovered by Pythagoras.
+
+Let \(a=\sin(x) + \cos(x)\). Then \(a^2 = 2\sin(x)\cos(x)\) because \(\sin^2x +
+\cos^2x = 1\).
+
+#+begin_src org
+The /Euler theorem/:
+
+\[
+\int_0^\infty e^{-x^2} dx = {{\sqrt{\pi}} \over {2}}
+\]
+
+LaTeX allows to inline such ~\[...\]~ constructs (/quadratic formula/):
+\[ \frac{-b \pm \sqrt{b^2 - 4 a c}}{2a} \]
+#+end_src
+
+The /Euler theorem/:
+
+\[
+\int_0^\infty e^{-x^2} dx = {{\sqrt{\pi}} \over {2}}
+\]
+
+LaTeX allows to inline such ~\[...\]~ constructs (/quadratic formula/):
+\[ \frac{-b \pm \sqrt{b^2 - 4 a c}}{2a} \]
+
+* References
+ :PROPERTIES:
+ :CUSTOM_ID: References
+ :END:
+
+If you want to include a list of references in your document, which
+you should if you are writing a serious paper, then use the following
+code to include it in this section.
+
+#+begin_src org
+#+ATTR_HTML: :id refs
+#+BEGIN_bibliography
+#+END_bibliography
+#+end_src
+
+The result will be:
+
+#+ATTR_HTML: :id refs
+#+BEGIN_bibliography
+#+END_bibliography
+
+* Appendix
+
+some stuff afterwards.
+
