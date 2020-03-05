@@ -45,3 +45,15 @@ Pas de volgende documenten aan:
 - meta/background.pdf
 
 Als het document wat je schrijft in het engels is, verander dan de taal indicator in preamble.md naar en ipv nl.
+
+# Voorbeelden
+
+Also look at the included PDF document for a sample of what it can do.
+
+![Document Voorbeeld 1](document-1.png)
+
+![Document Voorbeeld 2](document-2.png)
+
+![Document Voorbeeld 3](document-3.png)
+
+![Document Voorbeeld 6](document-6.png)
