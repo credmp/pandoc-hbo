@@ -289,10 +289,10 @@ See http://www.orgmode.org (automatic!) and the
 
 *** To documents
 #+begin_src org
-[[../introduction.org][Inception!]]
+[[./introduction.org][Inception!]]
 #+end_src
 
-[[../introduction.org][Inception!]]
+[[./introduction.org][Inception!]]
 
 *** Links to headings
 
@@ -331,18 +331,19 @@ If you have issues loading images, please check that one.
 *** Figures and tables
 
 #+begin_src org
-#+name: fig:name
+#+label: fig:naame
 #+caption: caption
 [[file:images/test.jpg]]
 
 See figure [@fig:name].
+
 #+end_src
 
-#+name: fig:name
+#+label: fig:name
 #+caption: caption
 [[file:images/test.jpg]]
 
-See figure [@fig:name].
+See figure [@fig:name] .
 
 #+begin_caution
 Due to the use of citeproc this does not work. Citeproc claims this reference for itself.

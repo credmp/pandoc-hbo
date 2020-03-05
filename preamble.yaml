@@ -12,6 +12,8 @@ titlepage-rule-height: 0
 titlepage-background: "meta/background.pdf"
 toc-own-page: true
 reference-section-title: References
+figPrefix: 'Figure'
+tablePrefix: 'Table'
 pandoc-latex-environment:
   noteblock: [note]
   tipblock: [tip]
