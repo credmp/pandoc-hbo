@@ -1,0 +1,30 @@
+#+TITLE: Org Ref sample document
+#+STARTUP: indent
+#+OPTIONS: tex:t
+
+* How to use
+
+~org-ref~ is an awesome package to work with citations within ~org-mode~. In the Dutch educational system the APA guidelines apply (cite:apa). Use the function ~org-ref-insert-link~ to insert a direct citation from your bibtex file.
+
+Lets see if it will work with pandoc.
+
+#+label: fig:tstfigure
+#+caption: caption
+[[file:images/test.jpg]]
+
+Cross reference a figure or a table by using ~org-ref-insert-ref-link~ to the above figure. At this time it does not work correctly. Org ref produces ref:fig:tstfigure, which is not understood by Pandoc, so use @fig:tstfigure instead.
+
+* Bibliography
+
+#+ATTR_HTML: :id refs
+#+BEGIN_bibliography
+#+END_bibliography
+
+* Metadata                                                         :noexport:
+
+This section contains metadata for org-ref and it is tagged with ~noexport~ to ensure that it is not exported with the document.
+
+bibliographystyle:apa
+bibliography:../meta/my-biblio.bib
+
+You can use this section for more configuration tasks
