@@ -1,0 +1,28 @@
+#+TITLE: Rapport Software Security
+
+* Inleiding
+
+Algemene inleiding over het onderzoek.
+
+* Inhoud
+
+Hier staan de hoofdstukken waarin je jouw onderzoek toelicht. Allemaal voorzien van APA referenties (@apa).
+
+
+* Samenvatting en Conclusie
+
+Hiermee rond je het hoofdstuk af.
+
+
+* Bibliografie
+ :PROPERTIES:
+ :CUSTOM_ID: References
+ :END:
+
+#+ATTR_HTML: :id refs
+#+BEGIN_bibliography
+#+END_bibliography
+
+* Appendix A
+
+Dit is een belangrijk stuk wat als onderbouwing voor het rapport dient.

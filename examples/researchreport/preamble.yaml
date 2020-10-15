@@ -1,0 +1,22 @@
+title: "Software Security Rapport"
+author: [Arjen Wiersma]
+date: "2020"
+subject: "Life in plain text is better"
+keywords: [Novi, Markdown, Voorbeeld]
+subtitle: "A (somewhat) complete reference"
+lang: "nl"
+titlepage: true,
+titlepage-text-color: "FFFFFF"
+titlepage-rule-color: "360049"
+titlepage-rule-height: 0
+titlepage-background: "meta/background.pdf"
+toc-own-page: true
+reference-section-title: References
+figPrefix: 'Figure'
+tablePrefix: 'Table'
+pandoc-latex-environment:
+  noteblock: [note]
+  tipblock: [tip]
+  warningblock: [warning]
+  cautionblock: [caution]
+  importantblock: [important]
