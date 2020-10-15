@@ -5,6 +5,7 @@ pandoc introduction.org \
        -o "document.pdf" \
     -H meta/options.sty \
     -N \
+    --listings \
     --metadata-file=preamble.yaml \
     --from org \
     --template "eisvogel.tex" \

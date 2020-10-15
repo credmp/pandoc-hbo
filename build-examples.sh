@@ -7,6 +7,7 @@ pandoc examples/org-ref.org \
        -o "examples/org-ref.pdf" \
     -H meta/options.sty \
     -N \
+    --listings \
     --metadata-file=preamble.yaml \
     --from org \
     --template "eisvogel.tex" \
@@ -24,6 +25,7 @@ pandoc examples/researchreport/rapport.org \
        -o "examples/researchreport/document.pdf" \
     -H meta/options.sty \
     -N \
+    --listings \
     -B examples/researchreport/management.tex \
     --metadata-file=examples/researchreport/preamble.yaml \
     --from org \
