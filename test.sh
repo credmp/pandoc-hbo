@@ -2,7 +2,7 @@
 
 docker run -v $(pwd):/doc/ -t -i --rm credmp/docker-pandoc \
  introduction.org \
-       -o "document.pdf" \
+       -o "org-introduction.pdf" \
     -H meta/options.sty \
     -N \
     --listings \
