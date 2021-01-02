@@ -10,7 +10,7 @@ fi
 
 # build the document
 docker run -v $(pwd):/doc/ -t -i --rm credmp/docker-pandoc \
-pandoc preamble.md \
+ preamble.md \
        001-intro.md \
        999-reference.md \
        -o "document.pdf" \
@@ -21,6 +21,6 @@ pandoc preamble.md \
     --listings \
     --toc -V toc-own-page=true \
     --filter=pandoc-latex-environment \
-    --filter=pandoc-citeproc   \
+    --citeproc \
     --biblio=meta/my-biblio.bib \
     --csl=meta/apa.csl
