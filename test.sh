@@ -1,7 +1,7 @@
 #!/bin/bash
 
 docker run -v $(pwd):/doc/ -t -i --rm credmp/docker-pandoc \
-pandoc introduction.org \
+ introduction.org \
        -o "document.pdf" \
     -H meta/options.sty \
     -N \
@@ -12,10 +12,13 @@ pandoc introduction.org \
     --toc -V toc-own-page=true \
     --filter=pandoc-latex-environment \
     --filter=pandoc-crossref   \
-    --filter=pandoc-citeproc   \
+    --citeproc \
     --biblio=meta/my-biblio.bib \
-    --csl=meta/apa.csl
+    --csl=meta/apa.csl \
+    --lua-filter meta/caption-filter.lua 
 
 
 #    --listings \
 #       -o "document.pdf" \
+#    --filter=pandoc-citeproc   \
+

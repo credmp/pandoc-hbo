@@ -16,6 +16,7 @@ Many of the below examples are taken from [[https://github.com/fniessen/refcard-
 
 *** Bold and italic
 
+#+CAPTION: bold and italic styles
 #+begin_src org
 /Emphasize/ (italics), *strongly* (bold), and */very strongly/* (bold italics).
 #+end_src
@@ -24,6 +25,7 @@ Many of the below examples are taken from [[https://github.com/fniessen/refcard-
 
 *** Monospace, superscript and subscript
 
+#+CAPTION: monospace, superscript and subscript styles
 #+begin_src org
 - monospaced typewriter font for ~inline code~
 - monospaced typewriter font for =verbatim text=
@@ -42,6 +44,7 @@ Many of the below examples are taken from [[https://github.com/fniessen/refcard-
 
 *** Unordered lists
 
+#+CAPTION: Unordered lists
 #+begin_src org
 - one item
 - two item
@@ -56,6 +59,7 @@ Many of the below examples are taken from [[https://github.com/fniessen/refcard-
 
 *** Ordered lists
 
+#+CAPTION: Ordered lists
 #+begin_src org
 1. numbered
 2. also
@@ -72,6 +76,7 @@ Many of the below examples are taken from [[https://github.com/fniessen/refcard-
    
 *** Checklists
 
+#+CAPTION: Checklists
 #+begin_src org
 - [X] Checked.
 - [-] Half-checked.
@@ -86,6 +91,7 @@ Many of the below examples are taken from [[https://github.com/fniessen/refcard-
 
 *** Definition lists
 
+#+CAPTION: Definition lists
 #+begin_src org
 - First term to define ::
      Definition of the first term. We add a few words to show the line wrapping,
@@ -110,6 +116,7 @@ Many of the below examples are taken from [[https://github.com/fniessen/refcard-
 
 *** Simple table with headers
 
+#+CAPTION: A simple table
 #+begin_src org
 | Header 1 | Header 2 |
 |----------+----------|
@@ -122,6 +129,7 @@ Many of the below examples are taken from [[https://github.com/fniessen/refcard-
 
 *** Naming your table
 
+#+CAPTION: A table with a caption
 #+begin_src org
 #+CAPTION: Description of the table
 | Header 1 | Header 2 |
@@ -145,6 +153,7 @@ Columns are automatically aligned:
 
 If you want to override the automatic alignment, use ~<r>~, ~<c>~ or ~<l>~.
 
+#+CAPTION: A table with aligned columns
 #+begin_src org
 #+CAPTION: Table with aligned columns
 |          <r> | <c>          | <l>          |
@@ -179,6 +188,7 @@ this is a quote from someone very wise
 
 *** Code
 
+#+CAPTION: Source code caption
 #+begin_src c  -r
   #include <stdio.h>
 
@@ -212,6 +222,7 @@ ditaa integration does not work yet.
 If you want to run ~ditaa~ in Emacs you will need to add it to ~org-babel~
 and set the path to the ~ditaa.jar~ you will have to install.
 
+#+CAPTION: Configure ditaa
 #+begin_src
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -222,6 +233,7 @@ and set the path to the ~ditaa.jar~ you will have to install.
 
 You can then use your best ascii art skills to draw diagrams.
 
+#+CAPTION: A ditaa diagram
 #+BEGIN_SRC
 ,#+BEGIN_SRC ditaa :file images/architecture.png :exports results
                                                       +---------+
@@ -247,6 +259,7 @@ You can then use your best ascii art skills to draw diagrams.
 ,#+END_SRC
 #+END_SRC
 
+#+CAPTION: A diagram
 #+BEGIN_SRC ditaa :file images/architecture.png :exports results
                                                       +---------+
                                  /----------------\   |Lucene{s}|
@@ -279,6 +292,7 @@ Is converted to the following image.
 
 *** To external sources
 
+#+CAPTION: Links to external sources
 #+begin_src org
 See http://www.orgmode.org (automatic!) and the
 [[http://orgmode.org/][Org mode Web site]].
@@ -288,6 +302,8 @@ See http://www.orgmode.org (automatic!) and the
 [[http://orgmode.org/][Org mode Web site]].
 
 *** To documents
+
+#+CAPTION: Links to documents
 #+begin_src org
 [[./introduction.org][Inception!]]
 #+end_src
@@ -299,6 +315,7 @@ See http://www.orgmode.org (automatic!) and the
 In the chapter, References, below the heading is annotated with custom
 properties.
 
+#+CAPTION: Links to headings
 #+begin_src org
 ,* References
   :PROPERTIES:
@@ -308,6 +325,7 @@ properties.
 
 Then you can reference the heading using a link.
 
+#+CAPTION: Using the link
 #+begin_src org
 See chapter [[#References][References]].
 #+end_src
@@ -316,10 +334,12 @@ See chapter [[#References][References]].
 
 *** Images
 
+#+CAPTION: An immage
 #+begin_src org
 [[./images/test.jpg]] 
 #+end_src
 
+#+CAPTION: Some image
 [[./images/test.jpg]] 
 
 \begin{cautionblock}
@@ -330,6 +350,7 @@ If you have issues loading images, please check that one.
 
 *** Figures and tables
 
+#+CAPTION: An figure
 #+begin_src org
 #+label: fig:naame
 #+caption: caption
@@ -366,6 +387,7 @@ Common admonitions are:
 4. ~caution~
 5. ~important~
 
+#+CAPTION: Admonitions
 #+begin_src org
 #+begin_note
 This is a useful note.
@@ -413,6 +435,7 @@ Important
 
 This can be achieved by using [[https://www.ctan.org/pkg/awesomebox][Awesomebox]]
 
+#+CAPTION: A latex version
 #+BEGIN_SRC latex
 \begin{noteblock}
 Another way to create a box
@@ -425,6 +448,7 @@ Another way to create a box
 
 ** Formula
 
+#+CAPTION: A formula
 #+begin_src org
 The formula \(a^2 + b^2 = c^2\) has been discovered by Pythagoras.
 
@@ -437,6 +461,7 @@ The formula \(a^2 + b^2 = c^2\) has been discovered by Pythagoras.
 Let \(a=\sin(x) + \cos(x)\). Then \(a^2 = 2\sin(x)\cos(x)\) because \(\sin^2x +
 \cos^2x = 1\).
 
+#+CAPTION: Another formula
 #+begin_src org
 The /Euler theorem/:
 
@@ -466,6 +491,7 @@ If you want to include a list of references in your document, which
 you should if you are writing a serious paper, then use the following
 code to include it in this section.
 
+#+CAPTION: Using a bibliography
 #+begin_src org
 #+ATTR_HTML: :id refs
 #+BEGIN_bibliography
