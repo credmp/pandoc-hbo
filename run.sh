@@ -4,7 +4,7 @@ if [ ! -e eisvogel.tex ];
 then
     echo "Downloading template"
     # Retrieve the eisvogel template file
-    wget https://raw.githubusercontent.com/credmp/pandoc-latex-template/master/eisvogel.tex
+    wget https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/v2.0.0/eisvogel.tex
 
 fi
 
